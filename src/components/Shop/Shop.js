@@ -1,66 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
-import Cart from '../Cart/Cart';
-import Product from '../Product/Product';
-import './Shop.css'
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import useProducts from "../../hooks/useProducts";
+import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import Cart from "../Cart/Cart";
+import Product from "../Product/Product";
+import "./Shop.css";
 const Shop = () => {
-    const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([])
-    useEffect( ()=>{
-        fetch('products.json')
-        .then(res=>res.json())
-        .then(data=>setProducts(data))
-    },[])
-    useEffect(()=>{
-        const storedCart = getStoredCart();
-        const savedCart = [];
-        //console.log(storedCart);
-        for(const id in storedCart){
-            
-            const addedProduct = products.find(product=>product.id===id)
-           if(addedProduct){
-            const quantity = storedCart[id];
-            addedProduct.quantity=quantity;
-            savedCart.push(addedProduct)
-           }
+  const [products, setProducts] = useProducts();
+  const [cart, setCart] = useState([]);
 
-        }
-        setCart(savedCart)
-        
-    },[products])
-    const handleAddToCart=(selectedProduct)=>{
-        let newCart=[]
-        const exists = cart.find(product=>product.id===selectedProduct.id);
-        if(!exists){
-                selectedProduct.quantity=1;
-                newCart=[...cart,selectedProduct];
-        }else{
-                const rest = cart.filter(product=>product.id !==selectedProduct.id)
-                exists.quantity=exists.quantity+1;
-                newCart=[...rest,exists]
-        }
-  
-        setCart(newCart)
-        //console.log(product);
-        addToDb(selectedProduct.id)
+  useEffect(() => {
+    const storedCart = getStoredCart();
+    const savedCart = [];
+    //console.log(storedCart);
+    for (const id in storedCart) {
+      const addedProduct = products.find((product) => product.id === id);
+      if (addedProduct) {
+        const quantity = storedCart[id];
+        addedProduct.quantity = quantity;
+        savedCart.push(addedProduct);
       }
-      
-    return (
-        <div className='shopContainer'>
-            <div className="productsContainer">
-               {
-                products.map(product=><Product
-                key={product.id}
-                product={product}
-                handleAddToCart={handleAddToCart}
-                ></Product>)
-               }
-            </div>
-            <div className="cartContainer">
-               <Cart cart={cart}></Cart>
-            </div>
-        </div>
-    );
+    }
+    setCart(savedCart);
+  }, [products]);
+  const handleAddToCart = (selectedProduct) => {
+    let newCart = [];
+    const exists = cart.find((product) => product.id === selectedProduct.id);
+    if (!exists) {
+      selectedProduct.quantity = 1;
+      newCart = [...cart, selectedProduct];
+    } else {
+      const rest = cart.filter((product) => product.id !== selectedProduct.id);
+      exists.quantity = exists.quantity + 1;
+      newCart = [...rest, exists];
+    }
+
+    setCart(newCart);
+    //console.log(product);
+    addToDb(selectedProduct.id);
+  };
+
+  return (
+    <div className="shopContainer">
+      <div className="productsContainer">
+        
+        {products.map((product) => (
+          <Product
+            key={product.id}
+            product={product}
+            handleAddToCart={handleAddToCart}
+          ></Product>
+        ))}
+      </div>
+      <div className="cartContainer">
+        <Cart cart={cart}>
+        <Link to={'/order'}>
+          <button className="reviewAndProceed">Review Order <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button>
+        </Link>
+        </Cart>
+      </div>
+    </div>
+  );
 };
 
 export default Shop;

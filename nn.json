@@ -1,0 +1,56 @@
+[
+    {
+        "id": "1",
+        "name": "Masters Black Chair",
+        "price": 420,
+        "img": "https://images.pexels.com/photos/2762247/pexels-photo-2762247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+    {
+        "id": "2",
+        "name": "Armchair",
+        "price": 420,
+        "img": "https://images.pexels.com/photos/11112734/pexels-photo-11112734.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+    {
+        "id": "3",
+        "name": "Wooden Table with Drawer",
+        "price": 420,
+        "img": "https://images.pexels.com/photos/11112745/pexels-photo-11112745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+    {
+        "id": "4",
+        "name": "Wooden Chair",
+        "price": 420,
+        "img": "https://images.pexels.com/photos/11112732/pexels-photo-11112732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+    {
+        "id": "5",
+        "name": "Wooden Cabinet",
+        "price": 420,
+        "img": "https://images.pexels.com/photos/11112749/pexels-photo-11112749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+    {
+        "id": "6",
+        "name": "Wooden Bench",
+        "price": 420,
+        "img": "https://images.pexels.com/photos/11112741/pexels-photo-11112741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+    {
+        "id": "7",
+        "name": "https://images.pexels.com/photos/11112731/pexels-photo-11112731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "price": 420,
+        "img": "Sofa"
+  },
+    {
+        "id": "8",
+        "name": "Wooden Console Table",
+        "price": 420,
+        "img": "https://images.pexels.com/photos/11112748/pexels-photo-11112748.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+    {
+        "id": "9",
+        "name": "Wooden Drawer",
+        "price": 420,
+        "img": "https://images.pexels.com/photos/11112736/pexels-photo-11112736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  }
+]
