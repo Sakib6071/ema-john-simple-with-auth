@@ -2,8 +2,8 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useState } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword, useSignOut } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from "../../firebase.init";
 
 const Login = () => {
@@ -16,8 +16,10 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  const location = useLocation()
+  const from = location.state?.from?.pathname || "/shop"
   if(user){
-    navigate('/shop')
+    navigate(from,{replace:true})
   }
   const handleEmailBlur=event=>{
     setEmail(event.target.value)
