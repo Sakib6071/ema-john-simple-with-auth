@@ -16,11 +16,11 @@ const Cart = (props) => {
   return (
     <div className="cart">
       <h2 className="orderHeading">Order Summary</h2>
-      <p>Selected Items : {quantity}</p>
-      <p>Total Price : ${totalPrice}</p>
-      <p>Total Shipping : ${shipping}</p>
-      <p>Tax : ${tax.toFixed(2)}</p>
-      <h5>Grand Total : ${grandTotal.toFixed(2)}</h5>
+      <p className=" my-3">Selected Items : {quantity}</p>
+      <p className=" my-3">Total Price : ${totalPrice}</p>
+      <p className=" my-3">Total Shipping : ${shipping}</p>
+      <p className=" my-3">Tax : ${tax.toFixed(2)}</p>
+      <h5 className="my-3">Grand Total : ${grandTotal.toFixed(2)}</h5>
       {props.children}
     </div>
   );

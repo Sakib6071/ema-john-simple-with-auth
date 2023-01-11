@@ -12,9 +12,9 @@ const ReviewItem = (props) => {
             </div>
             <div className='reviewDetails'>
             <h1>{name}</h1>
-            <span>Price : ${price}</span>
-            <span>Shipping Details : ${shipping}</span>
-            <span>Quantity : {quantity}</span>
+                <span>Price : ${price}</span>
+                <span>Shipping Details : ${shipping}</span>
+                <span>Quantity : {quantity}</span>
             </div>
             <div>
                 <button onClick={()=>handleRemoveProduct(product)} className='deleteButton'>

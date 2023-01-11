@@ -16,7 +16,7 @@ const Product = ({handleAddToCart,product}) => {
         <p className="productSeller">{seller}</p>
         <p className="productRatings">{ratings}</p>
       </div>
-      <button onClick={()=>handleAddToCart(product)} className="addToCart">
+      <button onClick={()=>handleAddToCart(product)} className="addToCart py-2">
         <p className="btnText">Add to Cart</p>
         <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
       </button>
